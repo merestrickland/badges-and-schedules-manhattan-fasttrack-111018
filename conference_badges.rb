@@ -7,9 +7,6 @@ def badge_maker(name)
   puts "Hello, my name is #{name}"
 end
 
-#badge_maker(speakers[2])
-
-
 def batch_badge_creator(arr)
   #returns an array of badge messages
   badge_arr = []
