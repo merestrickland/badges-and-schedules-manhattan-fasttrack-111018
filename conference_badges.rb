@@ -4,39 +4,36 @@ speakers = ["Edsger", "Ada", "Charles", "Alan", "Grace", "Linus", "Matz"]
 
 
 def badge_maker(name)
-  puts "Hello, my name is #{name}"
+  return "Hello, my name is #{name}."
 end
 
-def batch_badge_creator(arr)
-  #returns an array of badge messages
-  badge_arr = []
-  counter = 0
-  while counter < arr.length
-    each_speaker = badge_maker(arr[counter])
-    badge_arr.push(each_speaker)
-    counter += 1
+def batch_badge_creator(attendees)
+  #accepts an array of attendees
+  #returns an array of Hello, my name is
+  arr = []
+  attendees.each do |name|
+    arr.push("Hello, my name is #{name}.")
   end
-  puts badge_arr
-  #puts badge_arr.kind_of?(Array)
+  return arr
 end
 
-#batch_badge_creator(speakers)
+def assign_rooms(attendees)
+#accepts an array
+#returns an array
+  arr = []
+  attendees.each_with_index{|name, index| arr.push "Hello, #{name}! You'll be assigned to room #{index+1}!"}
+  return arr
+end
 
 
-def assign_rooms(arr)
-#assign each speaker to a room 1-7
-  counter = 0
-  (1..7).each do |num|
-  puts "Hello, #{arr[counter]}! You'll be assigned to room #{num}"
-  counter += 1
+def printer(speakers)
+
+  batch_badge_creator(speakers).each do |badge|
+    puts badge
   end
+
+  assign_rooms(speakers).each do |rooms|
+    puts rooms
+  end
+
 end
-
-#assign_rooms(speakers)
-
-def printer(arr)
-  puts batch_badge_creator(arr)
-  puts assign_rooms(arr)
-end
-
-#printer(speakers)
